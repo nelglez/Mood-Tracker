@@ -95,20 +95,121 @@
             </objects>
             <point key="canvasLocation" x="968.11594202898561" y="20.758928571428569"/>
         </scene>
-        <!--Mood Detail View Controller-->
+        <!--Mood Entry-->
         <scene sceneID="8PZ-bf-0dc">
             <objects>
                 <viewController id="zrv-Ae-PfR" customClass="MoodDetailViewController" customModule="Mood_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lnu-8D-S6h">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="bgN-yc-jp3">
+                                <rect key="frame" x="16" y="104" width="382" height="742"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mood" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TsJ-6N-9dX">
+                                        <rect key="frame" x="166" y="0.0" width="50.5" height="24"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="yZU-Or-bZ7">
+                                        <rect key="frame" x="141" y="32" width="100" height="335"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PLl-IJ-hS5">
+                                                <rect key="frame" x="0.0" y="0.0" width="100" height="60.5"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Amazing">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sdo-K8-he2">
+                                                <rect key="frame" x="0.0" y="68.5" width="100" height="60.5"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Good">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eKP-Qq-gk5">
+                                                <rect key="frame" x="0.0" y="137" width="100" height="61"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Neutral">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TjZ-GT-5SR">
+                                                <rect key="frame" x="0.0" y="206" width="100" height="60.5"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Bad">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d0v-xb-c79">
+                                                <rect key="frame" x="0.0" y="274.5" width="100" height="60.5"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Terrible">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="Qjs-uY-bcq"/>
+                                        </constraints>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VyA-AX-TZf">
+                                        <rect key="frame" x="170.5" y="375" width="41.5" height="24"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <datePicker contentMode="scaleToFill" verticalCompressionResistancePriority="250" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="YIx-L1-toM">
+                                        <rect key="frame" x="31" y="407" width="320" height="335"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="578939046.71427405">
+                                            <!--2019-05-07 16:24:06 +0000-->
+                                        </date>
+                                        <connections>
+                                            <action selector="datePickerDidChangeValue:" destination="zrv-Ae-PfR" eventType="valueChanged" id="FC9-wb-RTD"/>
+                                        </connections>
+                                    </datePicker>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="yZU-Or-bZ7" firstAttribute="height" secondItem="YIx-L1-toM" secondAttribute="height" id="sjY-vI-BGf"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="bgN-yc-jp3" firstAttribute="top" secondItem="jfW-od-UFi" secondAttribute="top" constant="16" id="Bfj-Cx-f02"/>
+                            <constraint firstItem="bgN-yc-jp3" firstAttribute="leading" secondItem="jfW-od-UFi" secondAttribute="leading" constant="16" id="OnI-wl-ecY"/>
+                            <constraint firstItem="jfW-od-UFi" firstAttribute="trailing" secondItem="bgN-yc-jp3" secondAttribute="trailing" constant="16" id="S6G-rg-l25"/>
+                            <constraint firstItem="jfW-od-UFi" firstAttribute="bottom" secondItem="bgN-yc-jp3" secondAttribute="bottom" constant="16" id="S8I-Y7-jwW"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="jfW-od-UFi"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Mood Entry" id="C25-Fy-er7">
+                        <barButtonItem key="backBarButtonItem" title="Cancel" id="WAl-Nm-o8g"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ERW-2d-XcZ">
+                            <connections>
+                                <action selector="pressCancel:" destination="zrv-Ae-PfR" id="uCN-eI-W3B"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="QMj-tp-RhI">
+                            <connections>
+                                <action selector="pressSave:" destination="zrv-Ae-PfR" id="ORO-1L-WT4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="amazingButton" destination="PLl-IJ-hS5" id="ebh-iX-ntJ"/>
+                        <outlet property="badButton" destination="TjZ-GT-5SR" id="m0p-L4-AWp"/>
+                        <outlet property="datePicker" destination="YIx-L1-toM" id="8Gs-8l-6TA"/>
+                        <outlet property="goodButton" destination="Sdo-K8-he2" id="Sa5-Vv-tPm"/>
+                        <outlet property="neutralButton" destination="eKP-Qq-gk5" id="mTS-AS-ML3"/>
+                        <outlet property="terribleButton" destination="d0v-xb-c79" id="xzG-44-3Pd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4ZV-hN-bmS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1686" y="21"/>
+            <point key="canvasLocation" x="1685.5072463768117" y="20.758928571428569"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rq6-3m-V3b">
@@ -126,7 +227,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bEr-Nh-JHV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="57.971014492753625" y="20.758928571428569"/>
+            <point key="canvasLocation" x="264" y="21"/>
         </scene>
     </scenes>
 </document>
