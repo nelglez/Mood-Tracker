@@ -88,11 +88,27 @@
                     <navigationItem key="navigationItem" id="bP2-Oe-LxR"/>
                     <connections>
                         <outlet property="tableView" destination="WH0-3s-Nch" id="QDl-bs-pIk"/>
+                        <segue destination="zrv-Ae-PfR" kind="show" identifier="show entry detail" id="jF4-wA-YjH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="968.11594202898561" y="20.758928571428569"/>
+        </scene>
+        <!--Mood Detail View Controller-->
+        <scene sceneID="8PZ-bf-0dc">
+            <objects>
+                <viewController id="zrv-Ae-PfR" customClass="MoodDetailViewController" customModule="Mood_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lnu-8D-S6h">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="jfW-od-UFi"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4ZV-hN-bmS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1686" y="21"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rq6-3m-V3b">

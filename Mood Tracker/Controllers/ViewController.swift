@@ -34,6 +34,28 @@ class ViewController: UIViewController {
         entries.insert(entry, at: 0)
         tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier {
+            switch identifier {
+            case "show entry details":
+                guard
+                    let selectedCell = sender as? MoodEntryTableViewCell,
+                    let indexPath = tableView.indexPath(for: selectedCell) else {
+                        return print("failed to locate index path from sender")
+                }
+                
+                guard let destVC = segue.destination as? MoodDetailViewController
+                    else {return print("storyboard not set up correctly")}
+                
+                let entry = entries[indexPath.row]
+                destVC.mood = entry.mood
+                destVC.date = entry.date
+                
+            default: break
+            }
+        }
+    }
 }
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
