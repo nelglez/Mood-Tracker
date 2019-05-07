@@ -13,6 +13,8 @@ class MoodDetailViewController: UIViewController {
     var mood: MoodEntry.Mood!
     var date: Date!
     
+    var isEditingEntry = false
+    
     @IBOutlet weak var amazingButton: UIButton!
     @IBOutlet weak var goodButton: UIButton!
     @IBOutlet weak var neutralButton: UIButton!
@@ -74,12 +76,8 @@ class MoodDetailViewController: UIViewController {
         mood = newMood
     }
     
-    @IBAction func pressCancel(_ sender: UIBarButtonItem) {
-        
-    }
-    
     @IBAction func pressSave(_ sender: UIBarButtonItem) {
-        
+        performSegue(withIdentifier: "unwind from save", sender: nil)
     }
     
     @IBAction func pressMood(_ button: UIButton) {

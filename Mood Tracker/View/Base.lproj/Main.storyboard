@@ -85,7 +85,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="bP2-Oe-LxR"/>
+                    <navigationItem key="navigationItem" id="bP2-Oe-LxR">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ydg-78-fdH">
+                            <connections>
+                                <segue destination="zrv-Ae-PfR" kind="show" identifier="show new entry" id="uzQ-44-rMd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="WH0-3s-Nch" id="QDl-bs-pIk"/>
                         <segue destination="zrv-Ae-PfR" kind="show" identifier="show entry detail" id="jF4-wA-YjH"/>
@@ -121,6 +127,9 @@
                                                 <state key="normal" title="Amazing">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="pressMood:" destination="zrv-Ae-PfR" eventType="touchUpInside" id="2A7-JS-10L"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sdo-K8-he2">
                                                 <rect key="frame" x="0.0" y="68.5" width="100" height="60.5"/>
@@ -128,6 +137,9 @@
                                                 <state key="normal" title="Good">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="pressMood:" destination="zrv-Ae-PfR" eventType="touchUpInside" id="iH1-xK-Oma"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eKP-Qq-gk5">
                                                 <rect key="frame" x="0.0" y="137" width="100" height="61"/>
@@ -135,6 +147,9 @@
                                                 <state key="normal" title="Neutral">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="pressMood:" destination="zrv-Ae-PfR" eventType="touchUpInside" id="4Xe-vA-CNC"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TjZ-GT-5SR">
                                                 <rect key="frame" x="0.0" y="206" width="100" height="60.5"/>
@@ -142,6 +157,9 @@
                                                 <state key="normal" title="Bad">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="pressMood:" destination="zrv-Ae-PfR" eventType="touchUpInside" id="k2i-Mu-69S"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d0v-xb-c79">
                                                 <rect key="frame" x="0.0" y="274.5" width="100" height="60.5"/>
@@ -149,6 +167,9 @@
                                                 <state key="normal" title="Terrible">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="pressMood:" destination="zrv-Ae-PfR" eventType="touchUpInside" id="S0H-0a-yys"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -189,7 +210,7 @@
                         <barButtonItem key="backBarButtonItem" title="Cancel" id="WAl-Nm-o8g"/>
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ERW-2d-XcZ">
                             <connections>
-                                <action selector="pressCancel:" destination="zrv-Ae-PfR" id="uCN-eI-W3B"/>
+                                <segue destination="Zog-Gk-kh3" kind="unwind" identifier="unwind from cancel" unwindAction="unwindToHome:" id="5B5-Oq-Osp"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="QMj-tp-RhI">
@@ -205,9 +226,11 @@
                         <outlet property="goodButton" destination="Sdo-K8-he2" id="Sa5-Vv-tPm"/>
                         <outlet property="neutralButton" destination="eKP-Qq-gk5" id="mTS-AS-ML3"/>
                         <outlet property="terribleButton" destination="d0v-xb-c79" id="xzG-44-3Pd"/>
+                        <segue destination="Zog-Gk-kh3" kind="unwind" identifier="unwind from save" unwindAction="unwindToHome:" id="kqA-C7-bQe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4ZV-hN-bmS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Zog-Gk-kh3" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1685.5072463768117" y="20.758928571428569"/>
         </scene>
@@ -230,4 +253,7 @@
             <point key="canvasLocation" x="264" y="21"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="jF4-wA-YjH"/>
+    </inferredMetricsTieBreakers>
 </document>

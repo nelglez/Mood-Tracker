@@ -17,8 +17,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addEntry))
-        
         let goodEntry = MoodEntry(mood: .good, date: Date())
         let badEntry = MoodEntry(mood: .bad, date: Date())
         let neutralEntry = MoodEntry(mood: .neutral, date: Date())
@@ -27,23 +25,21 @@ class ViewController: UIViewController {
         entries = [goodEntry, badEntry, neutralEntry, otherEntry]
         tableView.reloadData()
     }
-
-    @objc func addEntry() {
-        let now = Date()
-        let entry = MoodEntry(mood: .terrible, date: now)
-        entries.insert(entry, at: 0)
-        tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
-    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
             switch identifier {
+            case "show new entry":
+                guard let destVC = segue.destination as? MoodDetailViewController
+                    else {return print("storyboard not set up correctly")}
+                
+                destVC.mood = MoodEntry.Mood.none
+                destVC.date = Date()
+                
             case "show entry details":
                 guard
                     let selectedCell = sender as? MoodEntryTableViewCell,
-                    let indexPath = tableView.indexPath(for: selectedCell) else {
-                        return print("failed to locate index path from sender")
-                }
+                    let indexPath = tableView.indexPath(for: selectedCell) else {return print("failed to locate index path from sender")}
                 
                 guard let destVC = segue.destination as? MoodDetailViewController
                     else {return print("storyboard not set up correctly")}
@@ -51,9 +47,32 @@ class ViewController: UIViewController {
                 let entry = entries[indexPath.row]
                 destVC.mood = entry.mood
                 destVC.date = entry.date
+                destVC.isEditingEntry = true
                 
             default: break
             }
+        }
+    }
+    
+    @IBAction func unwindToHome(_ segue: UIStoryboardSegue) {
+        guard let identifier = segue.identifier else {
+            return
+        }
+        guard let destVC = segue.source as? MoodDetailViewController else {
+            return print("storyboard unwind segue not set up correctly")
+        }
+        
+        switch identifier {
+        case "unwind from save":
+            if destVC.isEditingEntry {
+                print("from save button and editing an existing entry")
+            } else {
+                print("from save button and adding a new entry")
+            }
+        case "unwind from cancel":
+            print("from cancel button")
+        default:
+            break
         }
     }
 }
