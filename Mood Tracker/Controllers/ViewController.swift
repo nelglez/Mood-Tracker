@@ -38,7 +38,7 @@ class ViewController: UIViewController {
                 
             case "show entry details":
                 guard
-                    let selectedCell = sender as? UITableViewCell,
+                    let selectedCell = sender as? MoodEntryTableViewCell,
                     let indexPath = tableView.indexPath(for: selectedCell) else {return print("failed to locate index path from sender")}
                 
                 guard let destVC = segue.destination as? MoodDetailViewController
