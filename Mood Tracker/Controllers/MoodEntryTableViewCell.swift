@@ -18,6 +18,12 @@ class MoodEntryTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    func configure(_ entry: MoodEntry) {
+        imgViewMoodColor.backgroundColor = entry.mood.colorValue
+        moodLabel.text = entry.mood.stringValue
+        dateLabel.text = entry.date.stringValue
+    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
