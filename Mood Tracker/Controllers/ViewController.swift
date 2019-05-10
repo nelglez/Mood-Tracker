@@ -38,7 +38,7 @@ class ViewController: UIViewController {
                 
             case "show entry details":
                 guard
-                    let selectedCell = sender as? MoodEntryTableViewCell,
+                    let selectedCell = sender as? UITableViewCell,
                     let indexPath = tableView.indexPath(for: selectedCell) else {return print("failed to locate index path from sender")}
                 
                 guard let destVC = segue.destination as? MoodDetailViewController
@@ -52,6 +52,14 @@ class ViewController: UIViewController {
             default: break
             }
         }
+    }
+    
+    @IBAction func pressCalender(_ sender: UIBarButtonItem) {
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let calenderVC = mainStoryboard.instantiateViewController(withIdentifier: "calender vc") as? CalenderViewController else {
+            return print("could not set up correctly.")
+        }
+        present(calenderVC, animated: true, completion: nil)
     }
     
     @IBAction func unwindToHome(_ segue: UIStoryboardSegue) {
